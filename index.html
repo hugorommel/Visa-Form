@@ -1,24 +1,28 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Анкета на визу в США</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-50 text-gray-800">
   <div class="max-w-3xl mx-auto p-6">
+    <!-- Header -->
     <header class="text-center mb-6">
       <h1 class="text-3xl font-bold text-blue-800">Заполнение анкеты на туристическую визу в США</h1>
       <p class="text-gray-600 mt-2">Все просто, понятно и с заботой о вас 😊</p>
     </header>
+
+    <!-- Анкета ID -->
     <div class="bg-white shadow-md rounded p-4 mb-6">
       <p class="font-semibold">Номер вашей анкеты: <span id="formId" class="text-blue-600"></span></p>
     </div>
+
+    <!-- Форма -->
     <form id="visaForm" class="space-y-6">
-      <!-- Разделы анкеты вставлены сюда... (из полной версии) -->
-      <!-- Я добавлю только первую часть для примера -->
+
+      <!-- Раздел 1: Личная информация -->
       <section class="bg-white shadow-md rounded p-4">
         <h2 class="text-xl font-semibold mb-2">1. Личная информация</h2>
         <p class="text-sm text-gray-500 mb-4">📌 Указывайте ФИО строго по загранпаспорту. Если сомневаетесь — сделайте фото паспорта и посмотрите внимательно. Мы за точность ✨</p>
@@ -32,16 +36,139 @@
           <input type="date" name="dob" required class="w-full border rounded p-2" />
         </label>
       </section>
+
+      <!-- Раздел 2: Поездка -->
+      <section class="bg-white shadow-md rounded p-4">
+        <h2 class="text-xl font-semibold mb-2">2. Поездка в США</h2>
+        <p class="text-sm text-gray-500 mb-2">🧳 Укажите примерные даты и цель поездки.</p>
+        <div class="bg-blue-50 border-l-4 border-blue-300 p-3 rounded mb-4">
+          <p class="text-sm text-blue-800">💡 <strong>Совет:</strong> Даже если вы ещё не купили билеты — не страшно! Важно просто указать примерные даты поездки. Обычно визы дают на 3–10 лет, и даты — это ориентир для понимания целей поездки.</p>
+        </div>
+        <div class="bg-yellow-50 border-l-4 border-yellow-300 p-3 rounded mb-4">
+          <p class="text-sm text-yellow-800">🌟 <strong>Подсказка:</strong> Туристическая цель может быть: отдых, путешествие, осмотр достопримечательностей, посещение друзей. Если сомневаетесь — мы подскажем, что лучше указать.</p>
+        </div>
+        <label class="block mb-2">Цель поездки:
+          <input name="tripPurpose" required class="w-full border rounded p-2" />
+        </label>
+        <label class="block mb-2">Предполагаемые даты поездки:
+          <input name="tripDates" class="w-full border rounded p-2" placeholder="например: с 10.08.2025 по 25.08.2025" />
+        </label>
+      </section>
+
+      <!-- Раздел 3: Работа и учеба -->
+      <section class="bg-white shadow-md rounded p-4">
+        <h2 class="text-xl font-semibold mb-2">3. Работа / Учёба</h2>
+        <p class="text-sm text-gray-500 mb-2">💼 Укажите актуальную информацию о вашей занятости. Это поможет показать вашу стабильность и связи с родиной.</p>
+        <div class="bg-blue-50 border-l-4 border-blue-300 p-3 rounded mb-4">
+          <p class="text-sm text-blue-800">💡 <strong>Совет:</strong> Даже если вы фрилансер, предприниматель или работаете неофициально — всё равно важно это указать. Консулу важно видеть, чем вы занимаетесь и как зарабатываете.</p>
+        </div>
+        <div class="bg-yellow-50 border-l-4 border-yellow-300 p-3 rounded mb-4">
+          <p class="text-sm text-yellow-800">📚 <strong>Если учитесь:</strong> Укажите название учебного заведения, специальность и курс. Можно также добавить, планируете ли продолжать обучение.</p>
+        </div>
+        <label class="block mb-2">Род занятий:
+          <input name="occupation" required class="w-full border rounded p-2" placeholder="например: бухгалтер / студент / предприниматель" />
+        </label>
+        <label class="block mb-2">Организация:
+          <input name="organization" class="w-full border rounded p-2" />
+        </label>
+        <label class="block mb-2">Адрес:
+          <input name="organizationAddress" class="w-full border rounded p-2" />
+        </label>
+      </section>
+
+      <!-- Остальные разделы с подсказками -->
+      <section class="bg-white shadow-md rounded p-4">
+        <h2 class="text-xl font-semibold mb-2">4. Семейное положение</h2>
+        <p class="text-sm text-gray-500 mb-4">💍 Укажите актуальное семейное положение.</p>
+        <label class="block mb-2">Семейное положение:
+          <input name="maritalStatus" class="w-full border rounded p-2" />
+        </label>
+      </section>
+
+      <section class="bg-white shadow-md rounded p-4">
+        <h2 class="text-xl font-semibold mb-2">5. Дети</h2>
+        <p class="text-sm text-gray-500 mb-4">👶 Укажите есть ли у вас дети и их данные.</p>
+        <label class="block mb-2">Есть ли у вас дети?
+          <input name="children" class="w-full border rounded p-2" />
+        </label>
+      </section>
+
+      <section class="bg-white shadow-md rounded p-4">
+        <h2 class="text-xl font-semibold mb-2">6. Питомцы</h2>
+        <p class="text-sm text-gray-500 mb-4">🐾 Наличие домашних животных может быть дополнительным фактором связи с родиной.</p>
+        <label class="block mb-2">Есть ли у вас питомцы?
+          <input name="pets" class="w-full border rounded p-2" />
+        </label>
+      </section>
+
+      <section class="bg-white shadow-md rounded p-4">
+        <h2 class="text-xl font-semibold mb-2">7. Социальные сети</h2>
+        <p class="text-sm text-gray-500 mb-4">🌐 Укажите ваши соцсети, которые вы использовали за последние 5 лет. Это обязательный пункт анкеты.</p>
+        <label class="block mb-2">Ваши соцсети:
+          <input name="socialMedia" class="w-full border rounded p-2" placeholder="например: Instagram: @username" />
+        </label>
+      </section>
+
+      <section class="bg-white shadow-md rounded p-4">
+        <h2 class="text-xl font-semibold mb-2">8. Экстренный контакт</h2>
+        <p class="text-sm text-gray-500 mb-4">📞 Это человек, с которым можно связаться в экстренной ситуации в США.</p>
+        <label class="block mb-2">Имя и контакт:
+          <input name="emergencyContact" class="w-full border rounded p-2" />
+        </label>
+      </section>
+
+      <section class="bg-white shadow-md rounded p-4">
+        <h2 class="text-xl font-semibold mb-2">9. Визовая история</h2>
+        <p class="text-sm text-gray-500 mb-4">🛂 Укажите, были ли у вас визы США, отказы или другие поездки за границу.</p>
+        <label class="block mb-2">Были ли у вас визы США?
+          <input name="usVisaHistory" class="w-full border rounded p-2" />
+        </label>
+        <label class="block mb-2">Были ли отказы?
+          <input name="visaDenials" class="w-full border rounded p-2" />
+        </label>
+        <label class="block mb-2">Куда ещё вы ездили?
+          <input name="travelHistory" class="w-full border rounded p-2" />
+        </label>
+      </section>
+
+      <section class="bg-white shadow-md rounded p-4">
+        <h2 class="text-xl font-semibold mb-2">10. Финансы</h2>
+        <p class="text-sm text-gray-500 mb-4">💰 Консулу важно понимать, на какие средства вы планируете поездку.</p>
+        <label class="block mb-2">Кто оплачивает поездку?
+          <input name="tripSponsor" class="w-full border rounded p-2" />
+        </label>
+      </section>
+
+      <section class="bg-white shadow-md rounded p-4">
+        <h2 class="text-xl font-semibold mb-2">11. Родственники в США</h2>
+        <p class="text-sm text-gray-500 mb-4">👨‍👩‍👧‍👦 Укажите, если у вас есть родственники, проживающие в США.</p>
+        <label class="block mb-2">Есть ли родственники в США?
+          <input name="relativesUSA" class="w-full border rounded p-2" />
+        </label>
+      </section>
+
+      <section class="bg-white shadow-md rounded p-4">
+        <h2 class="text-xl font-semibold mb-2">12. Дополнительная информация</h2>
+        <p class="text-sm text-gray-500 mb-4">📝 Если есть что-то важное, что вы хотите сообщить, укажите здесь.</p>
+        <label class="block mb-2">Дополнительно:
+          <textarea name="extraInfo" rows="4" class="w-full border rounded p-2"></textarea>
+        </label>
+      </section>
+
+      <!-- Кнопка отправки -->
       <div class="text-center">
         <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
           Отправить анкету
         </button>
       </div>
     </form>
+
+    <!-- Спасибо -->
     <div id="thanks" class="hidden mt-6 bg-green-100 text-green-800 p-4 rounded">
       Спасибо! Ваша анкета отправлена. Я свяжусь с вами в ближайшее время. 😊
     </div>
   </div>
+
   <script>
     const now = new Date();
     const id = `USVISA-${now.getFullYear()}${(now.getMonth()+1).toString().padStart(2,'0')}${now.getDate().toString().padStart(2,'0')}-${Math.floor(Math.random()*900 + 100)}`;
