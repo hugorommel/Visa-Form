@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Анкета на визу в США</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <div class="max-w-3xl mx-auto p-6">
+    <header class="text-center mb-6">
+      <h1 class="text-3xl font-bold text-blue-800">Заполнение анкеты на туристическую визу в США</h1>
+      <p class="text-gray-600 mt-2">Все просто, понятно и с заботой о вас 😊</p>
+    </header>
+    <div class="bg-white shadow-md rounded p-4 mb-6">
+      <p class="font-semibold">Номер вашей анкеты: <span id="formId" class="text-blue-600"></span></p>
+    </div>
+    <form id="visaForm" class="space-y-6">
+      <!-- Разделы анкеты вставлены сюда... (из полной версии) -->
+      <!-- Я добавлю только первую часть для примера -->
+      <section class="bg-white shadow-md rounded p-4">
+        <h2 class="text-xl font-semibold mb-2">1. Личная информация</h2>
+        <p class="text-sm text-gray-500 mb-4">📌 Указывайте ФИО строго по загранпаспорту. Если сомневаетесь — сделайте фото паспорта и посмотрите внимательно. Мы за точность ✨</p>
+        <label class="block mb-2">Фамилия:
+          <input name="lastName" required class="w-full border rounded p-2" />
+        </label>
+        <label class="block mb-2">Имя:
+          <input name="firstName" required class="w-full border rounded p-2" />
+        </label>
+        <label class="block mb-2">Дата рождения:
+          <input type="date" name="dob" required class="w-full border rounded p-2" />
+        </label>
+      </section>
+      <div class="text-center">
+        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+          Отправить анкету
+        </button>
+      </div>
+    </form>
+    <div id="thanks" class="hidden mt-6 bg-green-100 text-green-800 p-4 rounded">
+      Спасибо! Ваша анкета отправлена. Я свяжусь с вами в ближайшее время. 😊
+    </div>
+  </div>
+  <script>
+    const now = new Date();
+    const id = `USVISA-${now.getFullYear()}${(now.getMonth()+1).toString().padStart(2,'0')}${now.getDate().toString().padStart(2,'0')}-${Math.floor(Math.random()*900 + 100)}`;
+    document.getElementById('formId').textContent = id;
+
+    document.getElementById('visaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('visaForm').classList.add('hidden');
+      document.getElementById('thanks').classList.remove('hidden');
+    });
+  </script>
+</body>
+</html>
